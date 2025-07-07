@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Google Sans', sans-serif;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -649,8 +649,20 @@ body {
         display: flex;
     }
 
+    .hero {
+        padding: 80px 0 40px;
+    }
+
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-content {
+        padding: 0 10px;
     }
 
     .countdown {
@@ -691,8 +703,16 @@ body {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 60px 0 20px;
+    }
+
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.4rem;
+    }
+
+    .hero-content {
+        padding: 0 4px;
     }
 
     .hero-subtitle {

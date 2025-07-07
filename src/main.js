@@ -35,61 +35,89 @@ function updateCountdown() {
 
 // Mobile Menu Toggle
 function initMobileMenu() {
-    const menuToggle = document.querySelector('[data-menu-toggle]');
-    const mobileMenu = document.querySelector('[data-mobile-menu]');
-    const hamburgerLine1 = document.querySelector('[data-hamburger-line-1]');
-    const hamburgerLine2 = document.querySelector('[data-hamburger-line-2]');
-    const hamburgerLine3 = document.querySelector('[data-hamburger-line-3]');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileProgramsToggle = document.getElementById('mobile-programs-toggle');
+    const mobileProgramsDropdown = document.getElementById('mobile-programs-dropdown');
+    const hamburgerLine1 = document.getElementById('hamburger-line-1');
+    const hamburgerLine2 = document.getElementById('hamburger-line-2');
+    const hamburgerLine3 = document.getElementById('hamburger-line-3');
+    const navbar = document.getElementById('main-navbar');
+    let prevNavbarClasses = '';
 
-    if (menuToggle && mobileMenu && hamburgerLine1 && hamburgerLine2 && hamburgerLine3) {
+    if (mobileMenuButton && mobileMenu && mobileMenuOverlay && mobileMenuClose) {
         let isMenuOpen = false;
 
-        menuToggle.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
+        function openMenu() {
+            isMenuOpen = true;
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
 
-            if (isMenuOpen) {
-                // Show mobile menu
-                mobileMenu.classList.remove('hidden');
-
-                // Animate hamburger to X
-                hamburgerLine1.style.transform = 'rotate(45deg) translate(4px, 4px)';
-                hamburgerLine2.style.opacity = '0';
-                hamburgerLine3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
-            } else {
-                // Hide mobile menu
-                mobileMenu.classList.add('hidden');
-
-                // Animate X back to hamburger
-                hamburgerLine1.style.transform = 'rotate(0) translate(0, 0)';
-                hamburgerLine2.style.opacity = '1';
-                hamburgerLine3.style.transform = 'rotate(0) translate(0, 0)';
+            // Save previous navbar classes and set to solid white
+            if (navbar) {
+                prevNavbarClasses = navbar.className;
+                navbar.className = 'fixed top-0 left-0 w-full z-30 bg-white text-slate-900 transition-colors duration-300';
             }
-        });
 
-        // Close menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('a, button');
-        for (const link of mobileLinks) {
-            link.addEventListener('click', () => {
-                isMenuOpen = false;
-                mobileMenu.classList.add('hidden');
+            // Animate hamburger to X
+            hamburgerLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+            hamburgerLine2.style.opacity = '0';
+            hamburgerLine3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        }
 
-                // Reset hamburger animation
-                hamburgerLine1.style.transform = 'rotate(0) translate(0, 0)';
-                hamburgerLine2.style.opacity = '1';
-                hamburgerLine3.style.transform = 'rotate(0) translate(0, 0)';
+        function closeMenu() {
+            isMenuOpen = false;
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+
+            // Restore previous navbar classes
+            if (navbar && prevNavbarClasses) {
+                navbar.className = prevNavbarClasses;
+            }
+
+            // Reset hamburger animation
+            hamburgerLine1.style.transform = 'rotate(0) translate(0, 0)';
+            hamburgerLine2.style.opacity = '1';
+            hamburgerLine3.style.transform = 'rotate(0) translate(0, 0)';
+        }
+
+        // Open menu
+        mobileMenuButton.addEventListener('click', openMenu);
+
+        // Close menu
+        mobileMenuClose.addEventListener('click', closeMenu);
+        mobileMenuOverlay.addEventListener('click', closeMenu);
+
+        // Programs dropdown toggle
+        if (mobileProgramsToggle && mobileProgramsDropdown) {
+            mobileProgramsToggle.addEventListener('click', () => {
+                const isDropdownOpen = !mobileProgramsDropdown.classList.contains('hidden');
+                const arrow = mobileProgramsToggle.querySelector('svg');
+
+                if (isDropdownOpen) {
+                    mobileProgramsDropdown.classList.add('hidden');
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    mobileProgramsDropdown.classList.remove('hidden');
+                    arrow.style.transform = 'rotate(180deg)';
+                }
             });
         }
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (isMenuOpen && !menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                isMenuOpen = false;
-                mobileMenu.classList.add('hidden');
+        // Close menu when clicking on a link (except dropdown toggle)
+        const mobileLinks = mobileMenu.querySelectorAll('a:not([href="#"])');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
 
-                // Reset hamburger animation
-                hamburgerLine1.style.transform = 'rotate(0) translate(0, 0)';
-                hamburgerLine2.style.opacity = '1';
-                hamburgerLine3.style.transform = 'rotate(0) translate(0, 0)';
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMenu();
             }
         });
     }

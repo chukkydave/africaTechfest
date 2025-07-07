@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Training Programs | Africa Youth Festival 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header id="main-navbar"
+        class="fixed top-0 left-0 w-full z-30 bg-transparent text-white transition-colors duration-300">
+        <nav class="max-w-5xl mx-auto flex items-center justify-between py-6 px-4 relative">
+            <a href="index.html" class="flex items-center">
+                <img src="src/images/logo-white-name.png" alt="Africa Youth Festival" class="h-10 w-auto" />
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex justify-start items-center">
+                <ul class="flex space-x-10 text-sm font-medium">
+                    <li><a href="index.html" class="hover:border-b-2 hover:border-white pb-1">AYF'25</a></li>
+                    <li><a href="conference.html"
+                            class="hover:border-b-2 hover:border-white pb-1 transition">Conference</a>
+                    </li>
+                    <li class="relative group">
+                        <a href="#programs"
+                            class="hover:border-b-2 hover:border-white pb-1 transition flex items-center">Programs <svg
+                                class="w-4 h-4 ml-1 inline-block" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7H5" />
+                            </svg></a>
+                        <ul
+                            class="absolute left-0 mt-2 w-48 bg-white text-slate-900 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
+                            <li><a href="training-programs.html" class="block px-4 py-2 hover:bg-slate-100">Training
+                                    Programs</a></li>
+                            <li><a href="social-activities.html" class="block px-4 py-2 hover:bg-slate-100">Social
+                                    Activities</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#sponsors"
+                            class="hover:border-b-2 hover:border-white pb-1 transition">Sponsors/Partners</a></li>
+                </ul>
+                <a id="navbar-register-link" href="https://register.africayouthfestival.org"
+                    class="hidden ml-8 text-[#DF9847] font-normal px-6 py-2 rounded-full text-base flex items-center gap-2 shadow transition">
+                    Register <span class="inline-block"><svg width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1 z-50">
+                <span class="w-6 h-0.5 bg-white transition-all duration-300 transform" id="hamburger-line-1"></span>
+                <span class="w-6 h-0.5 bg-white transition-all duration-300 transform" id="hamburger-line-2"></span>
+                <span class="w-6 h-0.5 bg-white transition-all duration-300 transform" id="hamburger-line-3"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
+        <!-- Mobile Menu Sidebar -->
+        <div id="mobile-menu"
+            class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+            <div class="flex flex-col h-full">
+                <!-- Mobile Menu Header -->
+                <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                    <img src="src/images/Just-icon.png" alt="Africa Youth Festival" class="h-8 w-auto" />
+                    <button id="mobile-menu-close" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Items -->
+                <nav class="flex-1 p-6">
+                    <ul class="space-y-6">
+                        <li><a href="index.html"
+                                class="text-gray-900 font-medium text-lg hover:text-[#801825] transition">AYF'25</a>
+                        </li>
+                        <li><a href="conference.html"
+                                class="text-gray-900 font-medium text-lg hover:text-[#801825] transition">Conference</a>
+                        </li>
+                        <li class="relative">
+                            <button id="mobile-programs-toggle"
+                                class="text-gray-900 font-medium text-lg hover:text-[#801825] transition flex items-center justify-between w-full">
+                                Programs
+                                <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <ul id="mobile-programs-dropdown" class="hidden mt-2 ml-4 space-y-2">
+                                <li><a href="training-programs.html"
+                                        class="text-gray-600 hover:text-[#801825] transition block py-2">Training
+                                        Programs</a></li>
+                                <li><a href="social-activities.html"
+                                        class="text-gray-600 hover:text-[#801825] transition block py-2">Social
+                                        Activities</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#sponsors"
+                                class="text-gray-900 font-medium text-lg hover:text-[#801825] transition">Sponsors/Partners</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Register Button -->
+                <div class="p-6 border-t border-gray-200">
+                    <a href="https://register.africayouthfestival.org"
+                        class="block w-full bg-[#801825] text-white font-bold py-3 px-6 rounded-lg text-center hover:bg-[#6a1420] transition">
+                        Register Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Banner Section -->
+    <section id="hero"
+        class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+        style="background-image: url('src/images/bg.jpg'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10 max-w-5xl mx-auto w-full flex flex-col md:flex-row items-top justify-center">
+            <!-- Left: Banner Text -->
+            <div class="w-full md:w-1/2 mt-20 md:mt-0 flex flex-col items-start md:items-start">
+                <h1
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#DF9847] mb-6 sm:mb-8 text-left">
+                    Training<br>Programs
+                </h1>
+                <a href="https://register.africayouthfestival.org"
+                    class="bg-white text-[#801825] font-bold px-6 sm:px-8 py-3 rounded-lg text-base sm:text-lg shadow-lg transition mb-6 sm:mb-8 cursor-pointer">Register
+                    now</a>
+            </div>
+            <!-- Right: Description -->
+            <div class="w-full md:w-1/2 flex flex-col items-start md:items-end mt-6 md:mt-0">
+                <p class="text-white text-sm  md:text-base max-w-md mt-4 md:mt-0">
+                    As a participant or trainee you will have the option to select a Training programme of your interest
+                    as core development
+                    track during the festival and beyond. Each area is tailored to match interests, career paths, and
+                    development goals,
+                    ensuring practical and relevant learning outcomes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs -->
+    <div class="relative max-w-4xl mx-auto mt-24 px-4">
+        <!-- Scroll Arrows -->
+        <button id="tab-scroll-left"
+            class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 hidden md:block">
+            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div id="tab-scroll-container"
+            class="overflow-x-auto whitespace-nowrap scrollbar-hide flex items-center gap-x-4 px-10">
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-[#801825] active-tab inline-block"
+                data-tab="mun">
+                Model United Nations (MUN) & Diplomacy Training
+            </button>
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                data-tab="governance">
+                Governance and Leadership Training Programme
+            </button>
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                data-tab="entrepreneurship">
+                Entrepreneurship Training Programme
+            </button>
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                data-tab="social">
+                Social & Development Training Programme
+            </button>
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                data-tab="tech">
+                Information and Technology Skills Enhancement (HO2WO)
+            </button>
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                data-tab="vocational">
+                Vocational & Technical Skills Enhancement Programme
+            </button>
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                data-tab="creative">
+                Creative Arts Talents Enhancement Programme
+            </button>
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                data-tab="women">
+                Women's Wealth Building Training Programme
+            </button>
+            <button
+                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                data-tab="agribusiness">
+                Youth in Agribusiness Programme
+            </button>
+        </div>
+        <button id="tab-scroll-right"
+            class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 hidden md:block">
+            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+    <!-- Overlapping Card Section -->
+    <section class="relative bg-white pb-0">
+        <!-- MUN Tab Content (default visible) -->
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content"
+            id="tab-mun">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Model United Nations (MUN) and diplomacy
+            </h2>
+            <p class="text-black opacity-80 mb-2">
+                Delivered under the umbrella of the International Youth Diplomacy Conference (IYDC), this track sharpens
+                negotiation, policy analysis, and global engagement skills. It also aligns with the principles of the
+                Model United Nations, a program established by the United Nations to train young people in diplomacy and
+                prepare them for potential roles within the UN.
+            </p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">Modeling the United Nations General Assembly committees
+                        and some agencies.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">In-person and virtual sessions (discussions,
+                        deliberations, negotiations, speeches, position papers and resolutions).</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">One month pre-MUN training and two (2) days in-person
+                        training.</div>
+                </div>
+            </div>
+        </div>
+        <!-- Other tab contents (hidden by default, same structure, placeholder text) -->
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content hidden"
+            id="tab-governance">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Governance and Leadership Training Programme
+            </h2>
+            <p class="text-black opacity-80 mb-2">This program prepares young people to take on leadership roles in
+                government, community, and organizational settings. It
+                also equips current officials in these fields with the skills and knowledge needed to enhance their
+                leadership impact.
+            </p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">Fellowship Programme.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">In-person and virtual training (Practical Teamwork
+                        Activities, Soft Skills Training, Leadership Exercises,
+                        Brainstorming, Pitches, Coaching and Mentorship, Industry Tour etc).</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">Two (2) Days in person and One (1) year coaching.</div>
+                </div>
+            </div>
+        </div>
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content hidden"
+            id="tab-entrepreneurship">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Entrepreneurship Training Programme</h2>
+            <p class="text-black opacity-80 mb-2">This program provides practical training in business development,
+                startup strategies, and financial literacy. Given that
+                entrepreneurship is a key solution to Africa's unemployment challenges, participants will receive
+                comprehensive
+                entrepreneurial training to develop essential skills in business management, financial planning,
+                fundraising, and more.</p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">Business Development Programme.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">In-person and virtual training (Practical Teamwork
+                        Activities, Soft Skills Training, Leadership Exercises,
+                        Brainstorming, Pitches, Coaching and Mentorship, Industry Tour etc).</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">Two (2) Days in person and One (1) year virtual training
+                        and follow-up sessions.</div>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat for all other tabs, using the same structure -->
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content hidden"
+            id="tab-social">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Social & Development Training Programme</h2>
+            <p class="text-black opacity-80 mb-2">Focuses on sustainable development, NGO work, community service, and
+                building impact-driven initiatives.</p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">Fellowship Programme.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">In-person and virtual training (Practical Teamwork
+                        Activities, Soft Skills Training, Leadership Exercises,
+                        Brainstorming, Coaching and Mentorship, Industry Tour etc).</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">Two (2) Days in person and One (1) year virtual training
+                        and follow-up sessions.</div>
+                </div>
+            </div>
+        </div>
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content hidden"
+            id="tab-tech">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Information and Technology Skills
+                Enhancement (HO2WO)</h2>
+            <p class="text-black opacity-80 mb-2">In partnership with the Home to World Office (HO2WO) initiative by
+                Bruce Boye Business Consulting (BBBC), you will
+                receive IT skills enhancement as young IT professional for specialized job opportunities in Europe and
+                Africa. Through
+                this initiative, IT-skilled African youth particularly from Ghana will be empowered to work on European
+                projects
+                remotely. Our goal is to boost global competitiveness and open new career pathways for these talented
+                individuals.</p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">IT skills enhancement, Internship and job recruitment.
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">In-person and virtual training</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">Two (2) days and contract to contract periods.</div>
+                </div>
+            </div>
+        </div>
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content hidden"
+            id="tab-vocational">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Vocational & Technical Skills Enhancement
+                Programme</h2>
+            <p class="text-black opacity-80 mb-2">In collaboration with industry experts, this programme is designed to
+                equip young people with practical, hands-on skills
+                in vocational and technical fields. Participants will gain real-world experience to help them thrive in
+                today's changing
+                job market. Ghanaian attendees will also be linked to a specialized program through Ghana's TVET and
+                Youth Employment
+                Agency, offering continued training and potential referrals to similar programs in other African
+                countries.</p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">Skills enhancement.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">In-person Training.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">Two (2) days during the festival and six (6) months of
+                        project work.</div>
+                </div>
+            </div>
+        </div>
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content hidden"
+            id="tab-creative">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Creative Arts Talents Enhancement Programme
+            </h2>
+            <p class="text-black opacity-80 mb-2">It is a talent enhancement programme for young Africans in the
+                following industries: visual arts, dance, theater,
+                poetry, and literature. There will be workshops including, marketing, business development and others.
+                Also creatives at
+                the festival will have the opportunity to showcase their talents.</p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">Talent enhancement, Exhibitions and Performance.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">In-person and virtual Training.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">Three (3) days and One (1) year coaching.</div>
+                </div>
+            </div>
+        </div>
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content hidden"
+            id="tab-women">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Women's Wealth Building Training Programme
+            </h2>
+            <p class="text-black opacity-80 mb-2">This training programme is designed to equip women with essential
+                knowledge and practical skills in personal finance,
+                savings, budgeting, investment, and access to microfinance. It aims to foster long-term economic
+                independence and
+                informed decision-making in both personal and business contexts.</p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">Soft skills Training.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">Soft skills Training.</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">Two (2) Days and One (1) year virtual session.</div>
+                </div>
+            </div>
+        </div>
+        <div class="relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] tab-content hidden"
+            id="tab-agribusiness">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Youth in Agribusiness Programme</h2>
+            <p class="text-black opacity-80 mb-2">Highlighting agriculture's pivotal role in Africa's economy, this
+                programme delves into sustainable farming practices,
+                Agritech innovations, and entrepreneurial opportunities in the agricultural sector. Participants will
+                explore how to
+                transform traditional farming into profitable agribusiness ventures.</p>
+            <a href="https://register.africayouthfestival.org"
+                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                now</a>
+            <div class="flex flex-col gap-4 w-full">
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Scope</div>
+                    <div class="text-black opacity-70 text-sm">Practical and Soft skills Training</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Mode</div>
+                    <div class="text-black opacity-70 text-sm">In-person (Workshop and Pitching)</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl px-6 py-4 shadow-sm border border-gray-100">
+                    <div class="font-bold text-[#801825] text-lg mb-1">Duration</div>
+                    <div class="text-black opacity-70 text-sm">Two (2) Days and One (1) year virtual session.</div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full overflow-hidden" style="height: 600px;">
+            <img src="src/images/serious.jpg" class="w-full h-full object-cover" alt="AYF crowd" />
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-white pt-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
+                <!-- Logo and Event Name -->
+                <div class="flex flex-col items-start md:items-center md:col-span-1">
+                    <img src="src/images/Just-icon.png" alt="Africa Youth Festival Logo" class="h-16 mb-4">
+                    <span class="text-2xl font-semibold text-black">Africa<br>Youth<br>Festival</span>
+                </div>
+                <!-- About -->
+                <div>
+                    <div class="font-bold text-lg mb-2">About</div>
+                    <div class="text-gray-700 mb-2">Innovation for Empowerment and Development (IFED)</div>
+                    <div class="mb-1"><span class="font-bold">Tel:</span> +233209094279</div>
+                    <div><span class="font-bold">Email address:</span> info@africayouthfestival.org</div>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <div class="font-bold text-lg mb-2">Quick links</div>
+                    <div class="text-gray-700 space-y-1">
+                        <div><a href="index.html" class="cursor-pointer hover:underline">AYF'25</a></div>
+                        <div><a href="conference.html" class="cursor-pointer hover:underline">Conference</a></div>
+                        <div><a href="training-programs.html" class="cursor-pointer hover:underline">Training
+                                Programs</a></div>
+                        <div><a href="social-activities.html" class="cursor-pointer hover:underline">Social
+                                Activities</a></div>
+                    </div>
+                </div>
+                <!-- Socials -->
+                <div>
+                    <div class="font-bold text-lg mb-2">Socials</div>
+                    <div class="text-gray-700 space-y-1">
+                        <div class="flex items-center gap-2"><a href="#"
+                                class="cursor-pointer flex items-center gap-2"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path
+                                        d="M22.46 6c-.77.35-1.6.59-2.47.7a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.72 1.04A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.99C7.69 9.13 4.07 7.38 1.64 4.7c-.37.64-.58 1.39-.58 2.19 0 1.51.77 2.84 1.94 3.62-.72-.02-1.4-.22-1.99-.55v.06c0 2.11 1.5 3.87 3.5 4.27-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.7 2.11 2.94 3.97 2.97A8.6 8.6 0 012 19.54c-.29 0-.57-.02-.85-.05A12.13 12.13 0 007.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.18 8.18 0 0024 4.59a8.36 8.36 0 01-2.54.7z" />
+                                </svg> X/Twitter</a></div>
+                        <div class="flex items-center gap-2"><a href="#"
+                                class="cursor-pointer flex items-center gap-2"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M16 8a6 6 0 01-8 0" />
+                                </svg> Facebook</a></div>
+                        <div class="flex items-center gap-2"><a href="#"
+                                class="cursor-pointer flex items-center gap-2"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                                    <circle cx="12" cy="12" r="3.5" />
+                                    <path d="M17.5 6.5h.01" />
+                                </svg> Instagram</a></div>
+                        <div class="flex items-center gap-2"><a href="#"
+                                class="cursor-pointer flex items-center gap-2"><svg class="w-5 h-5" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                                    <path d="M8 11v5" />
+                                    <path d="M12 11v5" />
+                                    <path d="M16 11v5" />
+                                    <path d="M8 8h.01" />
+                                    <path d="M12 8h.01" />
+                                    <path d="M16 8h.01" />
+                                </svg> LinkedIn</a></div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-12 border-gray-200">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end pb-14 text-sm">
+                <div class="text-gray-500 mb-4 md:mb-0">© 2025 Africa Youth Festival.</div>
+                <a href="#" class="font-bold text-black cursor-pointer">Back to top</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const tabContainer = document.getElementById('tab-scroll-container');
+        const leftBtn = document.getElementById('tab-scroll-left');
+        const rightBtn = document.getElementById('tab-scroll-right');
+        function updateArrowVisibility() {
+            leftBtn.style.display = tabContainer.scrollLeft > 0 ? 'block' : 'none';
+            rightBtn.style.display = (tabContainer.scrollLeft + tabContainer.offsetWidth < tabContainer.scrollWidth) ? 'block' : 'none';
+        }
+        leftBtn.addEventListener('click', () => {
+            tabContainer.scrollBy({ left: -200, behavior: 'smooth' });
+        });
+        rightBtn.addEventListener('click', () => {
+            tabContainer.scrollBy({ left: 200, behavior: 'smooth' });
+        });
+        tabContainer.addEventListener('scroll', updateArrowVisibility);
+        window.addEventListener('resize', updateArrowVisibility);
+        updateArrowVisibility();
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('text-[#801825]', 'active-tab'));
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.add('text-gray-700', 'bg-transparent'));
+                this.classList.remove('text-gray-700', 'bg-transparent');
+                this.classList.add('text-[#801825]', 'active-tab');
+                document.querySelectorAll('.tab-content').forEach(tc => tc.classList.add('hidden'));
+                document.getElementById('tab-' + this.dataset.tab).classList.remove('hidden');
+                setTimeout(() => {
+                    this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    updateArrowVisibility();
+                }, 100);
+            });
+        });
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

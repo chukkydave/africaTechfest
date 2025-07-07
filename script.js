@@ -1,46 +1,80 @@
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle for indee.html
 document.addEventListener('DOMContentLoaded', function () {
-    const menuToggle = document.querySelector('[data-menu-toggle]');
-    const mobileMenu = document.querySelector('[data-mobile-menu]');
-    const hamburgerLines = document.querySelectorAll('[data-hamburger-line-1], [data-hamburger-line-2], [data-hamburger-line-3]');
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const bars = document.querySelectorAll('.bar');
 
-    if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', function () {
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function () {
             // Toggle mobile menu
-            mobileMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('active');
 
-            // Animate hamburger menu
-            hamburgerLines.forEach((line, index) => {
+            // Animate hamburger bars
+            bars.forEach((bar, index) => {
                 if (index === 0) {
-                    line.style.transform = mobileMenu.classList.contains('hidden')
-                        ? 'rotate(0deg) translateY(0px)'
-                        : 'rotate(45deg) translateY(6px)';
+                    bar.style.transform = navMenu.classList.contains('active')
+                        ? 'rotate(45deg) translate(5px, 5px)'
+                        : 'rotate(0deg) translate(0px, 0px)';
                 } else if (index === 1) {
-                    line.style.opacity = mobileMenu.classList.contains('hidden') ? '1' : '0';
+                    bar.style.opacity = navMenu.classList.contains('active') ? '0' : '1';
                 } else if (index === 2) {
-                    line.style.transform = mobileMenu.classList.contains('hidden')
-                        ? 'rotate(0deg) translateY(0px)'
-                        : 'rotate(-45deg) translateY(-6px)';
+                    bar.style.transform = navMenu.classList.contains('active')
+                        ? 'rotate(-45deg) translate(7px, -6px)'
+                        : 'rotate(0deg) translate(0px, 0px)';
                 }
             });
         });
 
         // Close mobile menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('a, button');
-        mobileLinks.forEach(link => {
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                navMenu.classList.remove('active');
                 // Reset hamburger animation
-                hamburgerLines.forEach((line, index) => {
+                bars.forEach((bar, index) => {
                     if (index === 0) {
-                        line.style.transform = 'rotate(0deg) translateY(0px)';
+                        bar.style.transform = 'rotate(0deg) translate(0px, 0px)';
                     } else if (index === 1) {
-                        line.style.opacity = '1';
+                        bar.style.opacity = '1';
                     } else if (index === 2) {
-                        line.style.transform = 'rotate(0deg) translateY(0px)';
+                        bar.style.transform = 'rotate(0deg) translate(0px, 0px)';
                     }
                 });
             });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                // Reset hamburger animation
+                bars.forEach((bar, index) => {
+                    if (index === 0) {
+                        bar.style.transform = 'rotate(0deg) translate(0px, 0px)';
+                    } else if (index === 1) {
+                        bar.style.opacity = '1';
+                    } else if (index === 2) {
+                        bar.style.transform = 'rotate(0deg) translate(0px, 0px)';
+                    }
+                });
+            }
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                // Reset hamburger animation
+                bars.forEach((bar, index) => {
+                    if (index === 0) {
+                        bar.style.transform = 'rotate(0deg) translate(0px, 0px)';
+                    } else if (index === 1) {
+                        bar.style.opacity = '1';
+                    } else if (index === 2) {
+                        bar.style.transform = 'rotate(0deg) translate(0px, 0px)';
+                    }
+                });
+            }
         });
     }
 });
