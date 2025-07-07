@@ -181,6 +181,49 @@ function initNavbarScrollEffect() {
     onScroll(); // Run on load
 }
 
+// Social Activities/Training Programs Tabs Logic
+function initTabBar() {
+    const tabContainer = document.getElementById('tab-scroll-container');
+    const leftBtn = document.getElementById('tab-scroll-left');
+    const rightBtn = document.getElementById('tab-scroll-right');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    if (!tabContainer || !tabBtns.length || !tabContents.length) return;
+
+    // Tab switching
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            tabBtns.forEach(b => b.classList.remove('text-[#801825]', 'active-tab'));
+            tabBtns.forEach(b => b.classList.add('text-gray-700', 'bg-transparent'));
+            this.classList.remove('text-gray-700', 'bg-transparent');
+            this.classList.add('text-[#801825]', 'active-tab');
+            tabContents.forEach(tc => tc.classList.add('hidden'));
+            const tabId = 'tab-' + this.dataset.tab;
+            const tabContent = document.getElementById(tabId);
+            if (tabContent) tabContent.classList.remove('hidden');
+        });
+    });
+
+    // Tab scroll arrow logic
+    function updateArrowVisibility() {
+        if (!leftBtn || !rightBtn) return;
+        leftBtn.style.display = tabContainer.scrollLeft > 0 ? 'block' : 'none';
+        rightBtn.style.display = (tabContainer.scrollLeft + tabContainer.offsetWidth < tabContainer.scrollWidth) ? 'block' : 'none';
+    }
+    if (leftBtn && rightBtn) {
+        leftBtn.addEventListener('click', () => {
+            tabContainer.scrollBy({ left: -200, behavior: 'smooth' });
+        });
+        rightBtn.addEventListener('click', () => {
+            tabContainer.scrollBy({ left: 200, behavior: 'smooth' });
+        });
+        tabContainer.addEventListener('scroll', updateArrowVisibility);
+        window.addEventListener('resize', updateArrowVisibility);
+        updateArrowVisibility();
+    }
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Start countdown timer
@@ -192,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScrolling();
     initButtonHandlers();
     initNavbarScrollEffect();
+    initTabBar();
 });
 
 // Add some animations on scroll
