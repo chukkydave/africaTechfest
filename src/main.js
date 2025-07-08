@@ -1,4 +1,4 @@
-// Countdown Timer Functionality
+// Countdown Timer Functionality (Keep as is)
 function updateCountdown() {
     const targetDate = new Date('November 4, 2025 00:00:00').getTime();
     const now = new Date().getTime();
@@ -33,6 +33,9 @@ function updateCountdown() {
     }
 }
 
+// Global reference for onScroll function, so we can call it from anywhere
+let handleNavbarScroll;
+
 // Mobile Menu Toggle
 function initMobileMenu() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -44,45 +47,57 @@ function initMobileMenu() {
     const hamburgerLine1 = document.getElementById('hamburger-line-1');
     const hamburgerLine2 = document.getElementById('hamburger-line-2');
     const hamburgerLine3 = document.getElementById('hamburger-line-3');
-    const navbar = document.getElementById('main-navbar');
-    let prevNavbarClasses = '';
+    const navbar = document.getElementById('main-navbar'); // Assuming your main navbar element has this ID
 
-    if (mobileMenuButton && mobileMenu && mobileMenuOverlay && mobileMenuClose) {
+    if (mobileMenuButton && mobileMenu && mobileMenuOverlay && mobileMenuClose && navbar) {
         let isMenuOpen = false;
 
         function openMenu() {
             isMenuOpen = true;
             mobileMenu.classList.remove('translate-x-full');
             mobileMenuOverlay.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling on body
 
-            // Save previous navbar classes and set to solid white
-            if (navbar) {
-                prevNavbarClasses = navbar.className;
-                navbar.className = 'fixed top-0 left-0 w-full z-30 bg-white text-slate-900 transition-colors duration-300';
-            }
+            // Force navbar to solid white when mobile menu is open
+            navbar.classList.remove('bg-transparent', 'bg-black', 'bg-opacity-80', 'backdrop-blur-md', 'text-white');
+            navbar.classList.add('bg-white', 'text-slate-900');
+
+            // Hide the register link in the main navbar when mobile menu is open
+            const registerLink = document.getElementById('navbar-register-link');
+            if (registerLink) registerLink.classList.add('hidden');
+
 
             // Animate hamburger to X
-            hamburgerLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
-            hamburgerLine2.style.opacity = '0';
-            hamburgerLine3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            if (hamburgerLine1 && hamburgerLine2 && hamburgerLine3) {
+                hamburgerLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                hamburgerLine2.style.opacity = '0';
+                hamburgerLine3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            }
         }
 
         function closeMenu() {
             isMenuOpen = false;
             mobileMenu.classList.add('translate-x-full');
             mobileMenuOverlay.classList.add('hidden');
-            document.body.style.overflow = '';
+            document.body.style.overflow = ''; // Restore body scrolling
 
-            // Restore previous navbar classes
-            if (navbar && prevNavbarClasses) {
-                navbar.className = prevNavbarClasses;
+            // Restore navbar state based on current scroll position
+            // We call the scroll effect function directly
+            if (typeof handleNavbarScroll === 'function') {
+                handleNavbarScroll();
             }
 
+            // Show the register link in the main navbar if the scroll position dictates it
+            // (handleNavbarScroll will manage this, but ensure it's not permanently hidden)
+            // No explicit action here, handleNavbarScroll will take care of it.
+
+
             // Reset hamburger animation
-            hamburgerLine1.style.transform = 'rotate(0) translate(0, 0)';
-            hamburgerLine2.style.opacity = '1';
-            hamburgerLine3.style.transform = 'rotate(0) translate(0, 0)';
+            if (hamburgerLine1 && hamburgerLine2 && hamburgerLine3) {
+                hamburgerLine1.style.transform = 'rotate(0) translate(0, 0)';
+                hamburgerLine2.style.opacity = '1';
+                hamburgerLine3.style.transform = 'rotate(0) translate(0, 0)';
+            }
         }
 
         // Open menu
@@ -100,10 +115,10 @@ function initMobileMenu() {
 
                 if (isDropdownOpen) {
                     mobileProgramsDropdown.classList.add('hidden');
-                    arrow.style.transform = 'rotate(0deg)';
+                    if (arrow) arrow.style.transform = 'rotate(0deg)';
                 } else {
                     mobileProgramsDropdown.classList.remove('hidden');
-                    arrow.style.transform = 'rotate(180deg)';
+                    if (arrow) arrow.style.transform = 'rotate(180deg)';
                 }
             });
         }
@@ -123,7 +138,7 @@ function initMobileMenu() {
     }
 }
 
-// Smooth Scrolling for Anchor Links
+// Smooth Scrolling for Anchor Links (Keep as is)
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
 
@@ -143,12 +158,12 @@ function initSmoothScrolling() {
     });
 }
 
-// Button Click Handlers
+// Button Click Handlers (Keep as is)
 function initButtonHandlers() {
     const registerButtons = document.querySelectorAll('button');
 
     registerButtons.forEach(button => {
-        if (button.textContent?.includes('Register Now')) {
+        if (button.textContent?.includes('Register now')) { // Changed 'Register Now' to 'Register now' based on your HTML
             button.addEventListener('click', () => {
                 // In a real application, this would redirect to the registration page
                 alert('Registration page would open here!');
@@ -157,31 +172,47 @@ function initButtonHandlers() {
     });
 }
 
+
 // Navbar scroll effect: fade background and show register link
 function initNavbarScrollEffect() {
     const navbar = document.getElementById('main-navbar');
-    const registerLink = document.getElementById('navbar-register-link');
-    const heroSection = document.getElementById('hero');
+    const registerLink = document.getElementById('navbar-register-link'); // Assuming this is the desktop register link
+    const heroSection = document.getElementById('hero'); // Assuming your hero section has this ID
 
-    function onScroll() {
+    if (!navbar || !heroSection) {
+        console.warn('Navbar or Hero section not found for scroll effect.');
+        return;
+    }
+
+    // Assign the function to the global variable
+    handleNavbarScroll = function() {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
-        if (heroBottom <= 80) {
-            // User has scrolled past hero
-            navbar.classList.remove('bg-transparent');
-            navbar.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-md');
+        // Check if mobile menu is currently open
+        const mobileMenu = document.getElementById('mobile-menu');
+        const isMobileMenuOpen = mobileMenu && !mobileMenu.classList.contains('translate-x-full');
+
+        // If mobile menu is open, let its logic control the navbar styling
+        if (isMobileMenuOpen) {
+            return; // Exit, as mobile menu open takes precedence
+        }
+
+        // Apply scroll-based styling
+        if (heroBottom <= 80) { // Scrolled past hero
+            navbar.classList.remove('bg-transparent', 'text-white');
+            navbar.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-md', 'text-white'); // Ensure text is white here
             if (registerLink) registerLink.classList.remove('hidden');
-        } else {
-            // At top/hero
-            navbar.classList.add('bg-transparent');
+        } else { // At top/hero
+            navbar.classList.add('bg-transparent', 'text-white'); // Keep text white on transparent
             navbar.classList.remove('bg-black', 'bg-opacity-80', 'backdrop-blur-md');
             if (registerLink) registerLink.classList.add('hidden');
         }
-    }
-    window.addEventListener('scroll', onScroll);
-    onScroll(); // Run on load
+    };
+
+    window.addEventListener('scroll', handleNavbarScroll);
+    handleNavbarScroll(); // Run on load to set initial state
 }
 
-// Social Activities/Training Programs Tabs Logic
+// Social Activities/Training Programs Tabs Logic (Keep as is)
 function initTabBar() {
     const tabContainer = document.getElementById('tab-scroll-container');
     const leftBtn = document.getElementById('tab-scroll-left');
@@ -234,11 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScrolling();
     initButtonHandlers();
-    initNavbarScrollEffect();
+    initNavbarScrollEffect(); // This should be initialized after initMobileMenu
     initTabBar();
 });
 
-// Add some animations on scroll
+// Add some animations on scroll (Keep as is)
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
