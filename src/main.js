@@ -1,4 +1,4 @@
-// Countdown Timer Functionality (Keep as is)
+// Countdown Timer Functionality
 function updateCountdown() {
     const targetDate = new Date('November 4, 2025 00:00:00').getTime();
     const now = new Date().getTime();
@@ -20,7 +20,6 @@ function updateCountdown() {
         if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
         if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
     } else {
-        // Event has started
         const daysEl = document.getElementById('days');
         const hoursEl = document.getElementById('hours');
         const minutesEl = document.getElementById('minutes');
@@ -33,10 +32,8 @@ function updateCountdown() {
     }
 }
 
-// Global reference for onScroll function, so we can call it from anywhere
 let handleNavbarScroll;
 
-// Mobile Menu Toggle
 function initMobileMenu() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -47,7 +44,7 @@ function initMobileMenu() {
     const hamburgerLine1 = document.getElementById('hamburger-line-1');
     const hamburgerLine2 = document.getElementById('hamburger-line-2');
     const hamburgerLine3 = document.getElementById('hamburger-line-3');
-    const navbar = document.getElementById('main-navbar'); // Assuming your main navbar element has this ID
+    const navbar = document.getElementById('main-navbar');
 
     if (mobileMenuButton && mobileMenu && mobileMenuOverlay && mobileMenuClose && navbar) {
         let isMenuOpen = false;
@@ -56,18 +53,15 @@ function initMobileMenu() {
             isMenuOpen = true;
             mobileMenu.classList.remove('translate-x-full');
             mobileMenuOverlay.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling on body
+            document.body.style.overflow = 'hidden';
 
-            // Force navbar to solid white when mobile menu is open
             navbar.classList.remove('bg-transparent', 'bg-black', 'bg-opacity-80', 'backdrop-blur-md', 'text-white');
             navbar.classList.add('bg-white', 'text-slate-900');
 
-            // Hide the register link in the main navbar when mobile menu is open
             const registerLink = document.getElementById('navbar-register-link');
             if (registerLink) registerLink.classList.add('hidden');
 
 
-            // Animate hamburger to X
             if (hamburgerLine1 && hamburgerLine2 && hamburgerLine3) {
                 hamburgerLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
                 hamburgerLine2.style.opacity = '0';
@@ -79,20 +73,12 @@ function initMobileMenu() {
             isMenuOpen = false;
             mobileMenu.classList.add('translate-x-full');
             mobileMenuOverlay.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore body scrolling
+            document.body.style.overflow = '';
 
-            // Restore navbar state based on current scroll position
-            // We call the scroll effect function directly
             if (typeof handleNavbarScroll === 'function') {
                 handleNavbarScroll();
             }
 
-            // Show the register link in the main navbar if the scroll position dictates it
-            // (handleNavbarScroll will manage this, but ensure it's not permanently hidden)
-            // No explicit action here, handleNavbarScroll will take care of it.
-
-
-            // Reset hamburger animation
             if (hamburgerLine1 && hamburgerLine2 && hamburgerLine3) {
                 hamburgerLine1.style.transform = 'rotate(0) translate(0, 0)';
                 hamburgerLine2.style.opacity = '1';
@@ -138,7 +124,7 @@ function initMobileMenu() {
     }
 }
 
-// Smooth Scrolling for Anchor Links (Keep as is)
+// Smooth Scrolling for Anchor Links
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
 
@@ -158,58 +144,51 @@ function initSmoothScrolling() {
     });
 }
 
-// Button Click Handlers (Keep as is)
+// Button Click Handlers
 function initButtonHandlers() {
     const registerButtons = document.querySelectorAll('button');
 
     registerButtons.forEach(button => {
-        if (button.textContent?.includes('Register now')) { // Changed 'Register Now' to 'Register now' based on your HTML
+        if (button.textContent?.includes('Register now')) {
             button.addEventListener('click', () => {
-                // In a real application, this would redirect to the registration page
                 alert('Registration page would open here!');
             });
         }
     });
 }
 
-
-// Navbar scroll effect: fade background and show register link
 function initNavbarScrollEffect() {
     const navbar = document.getElementById('main-navbar');
-    const registerLink = document.getElementById('navbar-register-link'); // Assuming this is the desktop register link
-    const heroSection = document.getElementById('hero'); // Assuming your hero section has this ID
+    const registerLink = document.getElementById('navbar-register-link');
+    const heroSection = document.getElementById('hero');
 
     if (!navbar || !heroSection) {
         console.warn('Navbar or Hero section not found for scroll effect.');
         return;
     }
 
-    // Assign the function to the global variable
     handleNavbarScroll = function() {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
-        // Check if mobile menu is currently open
         const mobileMenu = document.getElementById('mobile-menu');
         const isMobileMenuOpen = mobileMenu && !mobileMenu.classList.contains('translate-x-full');
 
-        // If mobile menu is open, let its logic control the navbar styling
         if (isMobileMenuOpen) {
-            return; // Exit, as mobile menu open takes precedence
+            return;
         }
 
-        // Apply scroll-based styling
-        if (heroBottom <= 80) { // Scrolled past hero
+        if (heroBottom <= 80) {
             navbar.classList.remove('bg-transparent', 'text-white');
-            navbar.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-md', 'text-white'); // Ensure text is white here
+            navbar.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-md', 'text-white');
             if (registerLink) registerLink.classList.remove('hidden');
         } else { // At top/hero
-            navbar.classList.add('bg-transparent', 'text-white'); // Keep text white on transparent
+            navbar.classList.add('bg-transparent', 'text-white');
             navbar.classList.remove('bg-black', 'bg-opacity-80', 'backdrop-blur-md');
             if (registerLink) registerLink.classList.add('hidden');
         }
     };
 
     window.addEventListener('scroll', handleNavbarScroll);
-    handleNavbarScroll(); // Run on load to set initial state
+    handleNavbarScroll();
 }
 
 // Social Activities/Training Programs Tabs Logic (Keep as is)
@@ -255,21 +234,17 @@ function initTabBar() {
     }
 }
 
-// Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Start countdown timer
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
-    // Initialize other features
     initMobileMenu();
     initSmoothScrolling();
     initButtonHandlers();
-    initNavbarScrollEffect(); // This should be initialized after initMobileMenu
+    initNavbarScrollEffect(); 
     initTabBar();
 });
 
-// Add some animations on scroll (Keep as is)
+// Add some animations on scroll
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
