@@ -137,7 +137,7 @@
     </header>
     <!-- Banner Section -->
     <section id="hero"
-        class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+        class="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
         style="background-image: url('src/images/bg.jpg'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 bg-black/50"></div>
         <div class="relative z-10 max-w-5xl mx-auto w-full flex flex-col md:flex-row items-top justify-center">
@@ -164,7 +164,7 @@
         </div>
     </section>
     <!-- Tabs -->
-    <div class="relative max-w-4xl mx-auto mt-24 px-4">
+    <div class="relative max-w-5xl mx-auto mt-24 px-4">
         <!-- Scroll Arrows -->
         <button id="tab-scroll-left"
             class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 hidden md:block">
@@ -173,21 +173,21 @@
             </svg>
         </button>
         <div id="tab-scroll-container"
-            class="overflow-x-auto whitespace-nowrap scrollbar-hide flex items-center gap-x-4 px-10">
+            class="overflow-x-auto whitespace-nowrap scrollbar-hide flex items-center gap-x-4">
             <button
-                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-[#801825] active-tab inline-block"
+                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-[#801825] active-tab inline-block"
                 data-tab="concert">Musical concert</button>
             <button
-                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
                 data-tab="games">Africa Youth Games</button>
             <button
-                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
                 data-tab="tour">Tour</button>
             <button
-                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
                 data-tab="awards">Pan-African awards</button>
             <button
-                class="tab-btn px-8 py-3 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
+                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
                 data-tab="anniversary">10-year anniversary</button>
         </div>
         <button id="tab-scroll-right"
@@ -201,7 +201,7 @@
     <section class="relative bg-white pb-0">
         <!-- Musical concert Tab Content (default visible) -->
         <div id="tab-concert"
-            class="tab-content relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] border border-gray-200">
+            class="tab-content relative max-w-5xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 px-4 py-10 z-10 mt-12 mb-[-20rem] border border-gray-200">
             <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Musical concert (Global village/African
                 market)</h2>
             <p class="text-black opacity-80 mb-2">As part of the Africa Youth Festival experience, the Musical Concert
@@ -304,12 +304,12 @@
     </section>
     <!-- Footer -->
     <footer class="bg-white pt-20">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
                 <!-- Logo and Event Name -->
                 <div class="flex flex-col items-start md:items-center md:col-span-1">
                     <img src="src/images/Just-icon.png" alt="Africa Youth Festival Logo" class="h-16 mb-4">
-                    <span class="text-2xl font-semibold text-black">Africa<br>Youth<br>Festival</span>
+                    <span class="text-2xl font-semibold text-black">Africa Youth<br>Festival</span>
                 </div>
                 <!-- About -->
                 <div>
@@ -374,7 +374,7 @@
             </div>
         </div>
     </footer>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
 </body>
 
 </html>
