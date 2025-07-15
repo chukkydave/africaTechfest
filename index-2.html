@@ -11,6 +11,13 @@
         content="Africa Youth Festival (AYF) is Africa's biggest gathering of youth leaders, creatives, entrepreneurs, and change makers from across the continent and the diaspora. This year, we're bringing 2,000+ young delegates to Accra, Ghana for 5 unforgettable days of activities.">
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDE6WPFHC5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -74,6 +81,10 @@
             transform: translateY(-50%);
             font-size: 1.5em;
         }
+
+        .slick-dots {
+            bottom: -65px !important;
+        }
     </style>
 </head>
 
@@ -108,7 +119,8 @@
                                     Activities</a></li>
                         </ul>
                     </li>
-                    <li><a href="#sponsors" class="hover:border-b-2 hover:border-white pb-1 transition">Sponsors/Partners</a></li>
+                    <li><a href="#sponsors"
+                            class="hover:border-b-2 hover:border-white pb-1 transition">Sponsors/Partners</a></li>
                 </ul>
                 <a id="navbar-register-link" href="https://register.africayouthfestival.org/register/"
                     class="hidden ml-8  text-[#DF9847] font-normal px-6 py-2 rounded-full text-base flex items-center gap-2 shadow transition">
@@ -257,13 +269,10 @@
             <!-- Right: Info and Register Button -->
             <div class="w-full md:w-1/2 text-left flex flex-col justify-center">
                 <div class="max-w-xs md:max-w-sm mb-6">
-                    <h2 class="text-4xl lg:text-5xl font-extrabold text-[#DF9847] mb-6 text-left">
-                        Registration is<br>now open!
-                    </h2>
-                    <h3 class="text-2xl lg:text-3xl font-semibold text-white mb-3">
+                    <h3 class="text-3xl lg:text-4xl font-semibold text-white mb-3">
                         Be part of Africa's biggest youth gathering – register today!
                     </h3>
-                    <p class="text-white text-xs opacity-60">
+                    <p class="text-white text-sm opacity-60">
                         Join 2,000 young leaders at AYF 2025. Limited spots available!
                     </p>
                 </div>
@@ -276,10 +285,12 @@
     </section>
 
     <!-- Welcome Section -->
-    <section class="relative bg-white pb-0">
+    <section
+        style="background-image: url('src/images/img.jpeg'); background-position: center; background-repeat: no-repeat; background-size: cover; min-height: 700px;"
+        class="pt-24 pb-10 px-4">
         <!-- Card -->
         <div
-            class="relative max-w-5xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col md:flex-row items-center gap-10 px-4 md:px-6 z-10 mt-24 mb-[-12rem] pb-5">
+            class="relative max-w-5xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col md:flex-row items-center gap-10 px-4 md:px-6 z-10 py-10 pb-5">
             <!-- Left -->
             <div class="flex-1">
                 <div class="text-xs uppercase tracking-widest text-[#a01c2b] font-bold mb-2">Africa Youth Festival 2025
@@ -310,10 +321,6 @@
                     Music, games and legacy-making moments</div>
             </div>
         </div>
-        <!-- Image at the bottom -->
-        <div class="w-full overflow-hidden" style="height: 400px;">
-            <img src="src/images/img.jpeg" class="w-full h-full object-cover" alt="AYF crowd" />
-        </div>
     </section>
 
     <!-- Activities/Tracks Section -->
@@ -322,38 +329,50 @@
             <h2 class="text-4xl font-extrabold text-[#801825] text-center mb-12">What to expect</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-2xl shadow p-8 flex flex-col items-center text-center">
-                    <div class="mb-4">
-                        <img src="src/images/path.svg" alt="AYF Participants" class="w-10 h-10 mx-auto" />
+                <a href="training-programs.html#what-to-expect">
+                    <div
+                        class="bg-white rounded-2xl shadow p-8 flex flex-col items-center text-center hover:translate-y-[-10px] transition-transform duration-300 hover:shadow-lg min-h-[210px]">
+                        <div class="mb-4">
+                            <img src="src/images/path.svg" alt="AYF Participants" class="w-10 h-10 mx-auto" />
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Choose your track</h3>
+                        <p class="text-gray-500 text-sm">MUN, leadership, entrepreneurship, technology, creative arts
+                            and more</p>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Choose your track</h3>
-                    <p class="text-gray-500 text-sm">MUN, leadership, entrepreneurship, technology, creative arts and
-                        more</p>
-                </div>
+                </a>
                 <!-- Card 2 -->
-                <div class="bg-white rounded-2xl shadow p-8 flex flex-col items-center text-center">
-                    <div class="mb-4">
-                        <img src="src/images/certificate.svg" alt="AYF Participants" class="w-10 h-10 mx-auto" />
+                <a href="social-activities.html#tab-games">
+                    <div
+                        class="bg-white rounded-2xl shadow p-8 flex flex-col items-center text-center hover:translate-y-[-10px] transition-transform duration-300 hover:shadow-lg min-h-[210px]">
+                        <div class="mb-4">
+                            <img src="src/images/certificate.svg" alt="AYF Participants" class="w-10 h-10 mx-auto" />
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Africa Youth Games and tours</h3>
+                        <p class="text-gray-500 text-sm">Experience Ghana's heritage, culture, and energy</p>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Africa Youth Games and tours</h3>
-                    <p class="text-gray-500 text-sm">Experience Ghana's heritage, culture, and energy</p>
-                </div>
+                </a>
                 <!-- Card 3 -->
-                <div class="bg-white rounded-2xl shadow p-8 flex flex-col items-center text-center">
-                    <div class="mb-4">
-                        <img src="src/images/certificate.svg" alt="AYF Participants" class="w-10 h-10 mx-auto" />
+                <a href="social-activities.html#tab-awards">
+                    <div
+                        class="bg-white rounded-2xl shadow p-8 flex flex-col items-center text-center hover:translate-y-[-10px] transition-transform duration-300 hover:shadow-lg min-h-[210px]">
+                        <div class="mb-4">
+                            <img src="src/images/certificate.svg" alt="AYF Participants" class="w-10 h-10 mx-auto" />
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Recognized certificates and award night</h3>
+                        <p class="text-gray-500 text-sm">Celebrate excellence and your role in building Africa</p>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Recognized certificates and award night</h3>
-                    <p class="text-gray-500 text-sm">Celebrate excellence and your role in building Africa</p>
-                </div>
+                </a>
                 <!-- Card 4 -->
-                <div class="bg-white rounded-2xl shadow p-8 flex flex-col items-center text-center">
-                    <div class="mb-4">
-                        <img src="src/images/music.svg" alt="AYF Participants" class="w-10 h-10 mx-auto" />
+                <a href="social-activities.html#tab-concert">
+                    <div
+                        class="bg-white rounded-2xl shadow p-8 flex flex-col items-center text-center hover:translate-y-[-10px] transition-transform duration-300 hover:shadow-lg min-h-[210px]">
+                        <div class="mb-4">
+                            <img src="src/images/music.svg" alt="AYF Participants" class="w-10 h-10 mx-auto" />
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Musical concert and cultural showcase</h3>
+                        <p class="text-gray-500 text-sm">Featuring top African artistes and the Afro Jollof battle</p>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Musical concert and cultural showcase</h3>
-                    <p class="text-gray-500 text-sm">Featuring top African artistes and the Afro Jollof battle</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -369,13 +388,27 @@
                         class="w-full h-full object-cover rounded-lg shadow" />
                 </div>
                 <!-- Right: Numbered List -->
-                <ol
-                    class="w-full md:w-1/2 text-gray-700 text-base list-decimal list-inside flex flex-col justify-center space-y-2">
-                    <li><span class="font-semibold">Build In-Demand Skills</span></li>
-                    <li><span class="font-semibold">Access Growth Opportunities</span></li>
-                    <li><span class="font-semibold">Showcase Your Talents</span></li>
-                    <li><span class="font-semibold">Connect & Collaborate Globally</span></li>
-                    <li><span class="font-semibold">Celebrate African Culture</span></li>
+                <ol class="w-full md:w-1/2 text-gray-700 text-base list-none flex flex-col justify-center space-y-6">
+                    <li>
+                        <i class="fas fa-hammer text-[#801825] mr-2"></i> <span class="font-semibold">Build In-Demand
+                            Skills</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-rocket text-[#801825] mr-2"></i> <span class="font-semibold">Access Growth
+                            Opportunities</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-[#801825] mr-2"></i> <span class="font-semibold">Showcase Your
+                            Talents</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-users text-[#801825] mr-2"></i> <span class="font-semibold">Connect &
+                            Collaborate Globally</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-mask text-[#801825] mr-2"></i> <span class="font-semibold">Celebrate African
+                            Culture</span>
+                    </li>
                 </ol>
             </div>
         </div>
@@ -385,7 +418,7 @@
 
     <!-- Program Details Section -->
     <section class="bg-black py-20" id="programs">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-center gap-12 px-4">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 px-4">
             <!-- Left: Heading and Button -->
             <div class="w-full md:w-1/2 flex flex-col items-start justify-center mb-8 md:mb-0">
                 <h2 class="text-4xl md:text-5xl font-extrabold text-[#FFB84C] mb-6">Program<br>details</h2>
@@ -397,7 +430,8 @@
             <div class="w-full md:w-1/2 flex flex-col space-y-6 text-white">
                 <div>
                     <div class="uppercase text-xs text-gray-400 tracking-widest mb-1">Theme</div>
-                    <div class="text-lg font-medium">Reflect. Review. Reset</div>
+                    <div class="text-lg font-medium">Reflect, Review and Reset: Igniting the Future of Africa’s Youth
+                    </div>
                 </div>
                 <div>
                     <div class="uppercase text-xs text-gray-400 tracking-widest mb-1">Dates</div>
@@ -539,28 +573,70 @@
     </section>
 
     <!-- Join the Movement Section -->
-    <section class="bg-gray-50 py-20 md:py-32">
+    <section class="bg-[#DF9847] py-20 md:py-32">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl md:text-5xl font-extrabold text-[#801825] mb-2">Join the movement</h2>
-            <h3 class="text-2xl md:text-3xl text-gray-500 mb-6 font-normal">Lead the change</h3>
-            <p class="text-base md:text-lg text-gray-400 mb-8 max-w-xl mx-auto">This is more than a conference, it's a
+            <h3 class="text-2xl md:text-3xl text-white mb-6 font-normal">Lead the change</h3>
+            <p class="text-base md:text-lg text-gray-50 mb-8 max-w-xl mx-auto">This is more than a conference, it's a
                 bold step towards shaping the Africa we want. You don't want to miss it.</p>
             <a href="https://register.africayouthfestival.org/register/"
                 class="bg-[#801825] hover:bg-[#a01c2b] text-white px-8 py-3 rounded-md text-base md:text-base font-semibold transition-colors mb-10">Register
                 now</a>
-            <div class="flex border-t border-gray-300 mt-20 w-32 justify-center mx-auto">
-
-            </div>
         </div>
-        <div class="container mx-auto mt-20" id="sponsors">
+    </section>
+    <section class="bg-gray-50 py-20 md:py-32">
+        <div class="container mx-auto mt-20 px-4" id="sponsors">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-600 mb-12 text-center">Our Partners</h2>
-
-            <div class="flex justify-center">
-                <div class="flex items-center flex-wrap justify-center space-x-8">
-                    <img src="https://ext.same-assets.com/2105499299/830640246.png" alt="Partner 1"
-                        class="h-16 opacity-60 hover:opacity-100 transition-opacity">
-                    <img src="https://ext.same-assets.com/2105499299/1936644757.png" alt="Partner 2"
-                        class="h-16 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="partners-carousel relative">
+                <div>
+                    <img src="src/images/partners/ho2wo.jfif" alt="Partner 1"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">Home Office to World Office</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/ifed.png" alt="Partner 2"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">IFED</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/iydc.png" alt="Partner 3"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">IYDC</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/Min_Youth_dev.jpg" alt="Partner 4"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">Ministry of Youth Development</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/Ministry-of-Foreign-Affairs-512-x-512-px1.png" alt="Partner 5"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">Ministry of Foreign Affairs</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/National Youth Auth.jpg" alt="Partner 6"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">National Youth Authority</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/osei-kusi-foundation-logo.png" alt="Partner 7"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">Osei-Kusi Foundation</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/Seal_of_the_Presidency_of_the_Republic_of_Ghana.svg" alt="Partner 8"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">Presidency of Ghana</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/UNIC Ghana.png" alt="Partner 9"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">UNIC Ghana</p>
+                </div>
+                <div>
+                    <img src="src/images/partners/Word-Vission-Ghana.png" alt="Partner 10"
+                        class="h-28 opacity-60 hover:opacity-100 transition-opacity mx-auto object-contain">
+                    <p class="font-bold text-center mt-2 text-gray-700">World Vision Ghana</p>
                 </div>
             </div>
         </div>
@@ -610,16 +686,16 @@
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M16 8a6 6 0 01-8 0" />
                                 </svg> Facebook</a></div>
-                        <div class="flex items-center gap-2"><a href="https://gh.linkedin.com/company/ifed-global" target="_blank"
-                                class="cursor-pointer flex items-center gap-2"><svg class="w-5 h-5" fill="none"
-                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-2"><a href="https://gh.linkedin.com/company/ifed-global"
+                                target="_blank" class="cursor-pointer flex items-center gap-2"><svg class="w-5 h-5"
+                                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <rect x="2" y="2" width="20" height="20" rx="5" />
                                     <circle cx="12" cy="12" r="3.5" />
                                     <path d="M17.5 6.5h.01" />
                                 </svg> Instagram</a></div>
-                        <div class="flex items-center gap-2"><a href="https://gh.linkedin.com/company/ifed-global" target="_blank"
-                                class="cursor-pointer flex items-center gap-2"><svg class="w-5 h-5" fill="none"
-                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-2"><a href="https://gh.linkedin.com/company/ifed-global"
+                                target="_blank" class="cursor-pointer flex items-center gap-2"><svg class="w-5 h-5"
+                                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <rect x="2" y="2" width="20" height="20" rx="5" />
                                     <path d="M8 11v5" />
                                     <path d="M12 11v5" />
@@ -639,6 +715,54 @@
         </div>
     </footer>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.partners-carousel').slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: false,
+                dots: true,
+
+
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 640,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
     <script type="module" src="src/main.js"></script>
 </body>
 

@@ -754,3 +754,14 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+/* For Webkit browsers (Chrome, Safari) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* For Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
