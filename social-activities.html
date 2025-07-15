@@ -40,19 +40,18 @@
     <header id="main-navbar"
         class="fixed top-0 left-0 w-full z-30 bg-transparent text-white transition-colors duration-300">
         <nav class="max-w-5xl mx-auto flex items-center justify-between py-6 px-4 relative">
-            <a href="index.html" class="flex items-center">
+            <a href="#" class="flex items-center">
                 <img src="src/images/logo-white-name.png" alt="Africa Youth Festival" class="h-10 w-auto" />
             </a>
 
-            <!-- Desktop Menu -->
             <div class="hidden md:flex justify-start items-center">
                 <ul class="flex space-x-10 text-sm font-medium">
-                    <li><a href="index.html" class="hover:border-b-2 hover:border-white pb-1">AYF'25</a></li>
+                    <li><a href="index.html" class="border-b-2 border-white pb-1">AYF'25</a></li>
                     <li><a href="conference.html"
                             class="hover:border-b-2 hover:border-white pb-1 transition">Conference</a>
                     </li>
                     <li class="relative group">
-                        <a href="#programs"
+                        <a href="index.html#programs"
                             class="hover:border-b-2 hover:border-white pb-1 transition flex items-center">Programs <svg
                                 class="w-4 h-4 ml-1 inline-block" fill="none" stroke="currentColor" stroke-width="2"
                                 viewBox="0 0 24 24">
@@ -62,11 +61,11 @@
                             class="absolute left-0 mt-2 w-48 bg-white text-slate-900 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
                             <li><a href="training-programs.html" class="block px-4 py-2 hover:bg-slate-100">Training
                                     Programs</a></li>
-                            <li><a href="social-activities.html" class="block px-4 py-2 hover:bg-slate-100">Social
+                            <li><a href="#" class="block px-4 py-2 hover:bg-slate-100">Social
                                     Activities</a></li>
                         </ul>
                     </li>
-                    <li><a href="#sponsors"
+                    <li><a href="index.html#sponsors"
                             class="hover:border-b-2 hover:border-white pb-1 transition">Sponsors/Partners</a></li>
                 </ul>
                 <a id="navbar-register-link" href="https://register.africayouthfestival.org/register/"
@@ -78,7 +77,6 @@
                 </a>
             </div>
 
-            <!-- Mobile Hamburger Button -->
             <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1 z-50">
                 <span class="w-6 h-0.5 bg-white transition-all duration-300 transform" id="hamburger-line-1"></span>
                 <span class="w-6 h-0.5 bg-white transition-all duration-300 transform" id="hamburger-line-2"></span>
@@ -86,14 +84,11 @@
             </button>
         </nav>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden md:hidden"></div>
 
-        <!-- Mobile Menu Sidebar -->
         <div id="mobile-menu"
-            class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+            class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden z-80">
             <div class="flex flex-col h-full">
-                <!-- Mobile Menu Header -->
                 <div class="flex justify-between items-center p-6 border-b border-gray-200">
                     <img src="src/images/Just-icon.png" alt="Africa Youth Festival" class="h-8 w-auto" />
                     <button id="mobile-menu-close" class="text-gray-500 hover:text-gray-700">
@@ -103,7 +98,6 @@
                     </button>
                 </div>
 
-                <!-- Mobile Menu Items -->
                 <nav class="flex-1 p-6">
                     <ul class="space-y-6">
                         <li><a href="index.html"
@@ -125,18 +119,16 @@
                                 <li><a href="training-programs.html"
                                         class="text-gray-600 hover:text-[#801825] transition block py-2">Training
                                         Programs</a></li>
-                                <li><a href="social-activities.html"
-                                        class="text-gray-600 hover:text-[#801825] transition block py-2">Social
+                                <li><a href="#" class="text-gray-600 hover:text-[#801825] transition block py-2">Social
                                         Activities</a></li>
                             </ul>
                         </li>
-                        <li><a href="#sponsors"
+                        <li><a href="index.html#sponsors"
                                 class="text-gray-900 font-medium text-lg hover:text-[#801825] transition">Sponsors/Partners</a>
                         </li>
                     </ul>
                 </nav>
 
-                <!-- Mobile Register Button -->
                 <div class="p-6 border-t border-gray-200">
                     <a href="https://register.africayouthfestival.org/register/"
                         class="block w-full bg-[#801825] text-white font-bold py-3 px-6 rounded-lg text-center hover:bg-[#6a1420] transition">
@@ -177,8 +169,8 @@
 
     <section class="relative bg-white pb-0">
         <div
-            class="flex flex-col md:flex-row gap-8 px-4 relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] border border-gray-200">
-            <div class="md:w-1/4 flex flex-col gap-2">
+            class="flex flex-col md:flex-row gap-8 px-4 relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 px-4 lg:px-8 py-10 z-10 mt-12 mb-[-20rem] border border-gray-200 ">
+            <div class="md:w-1/4 flex-col gap-2 hidden md:flex">
                 <button
                     class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-[#801825] active-tab inline-block text-left"
                     data-tab="concert" data-image="src/images/dancing.png">Musical concert</button>
@@ -194,6 +186,17 @@
                 <button
                     class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block text-left"
                     data-tab="anniversary" data-image="src/images/anniversary.jpg">10-year anniversary</button>
+            </div>
+
+            <div class="md:hidden w-full px-4 mb-4">
+                <select id="mobile-tab-select"
+                    class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-transparent focus:border-[#a01c2b]">
+                    <option value="concert" data-image="src/images/dancing.png">Musical concert</option>
+                    <option value="games" data-image="src/images/games.jpg">Africa Youth Games</option>
+                    <option value="tour" data-image="src/images/tour.jpg">Tour</option>
+                    <option value="awards" data-image="src/images/awards.jpg">Pan-African awards</option>
+                    <option value="anniversary" data-image="src/images/anniversary.jpg">10-year anniversary</option>
+                </select>
             </div>
             <div class="md:w-3/4">
                 <div id="tab-concert" class="tab-content">
@@ -400,12 +403,16 @@
             const tabContents = document.querySelectorAll('.tab-content');
             const tabScrollContainer = document.getElementById('tab-scroll-container');
             const tabNavSection = document.querySelector('.relative.max-w-5xl.mx-auto.mt-24.px-4');
+            const bottomImage = document.getElementById('bottomImage'); // Assuming this is the image to change
+            const mobileSelect = document.getElementById('mobile-tab-select'); // Get the mobile select element
 
             function activateTab(tabId) {
+                // Deactivate all buttons
                 tabButtons.forEach(button => {
                     button.classList.remove('active-tab', 'text-[#801825]');
                     button.classList.add('text-gray-700', 'bg-transparent');
                 });
+                // Hide all content
                 tabContents.forEach(content => {
                     content.classList.add('hidden');
                 });
@@ -414,10 +421,19 @@
                 const targetContent = document.getElementById(`tab-${tabId}`);
 
                 if (targetButton && targetContent) {
+                    // Activate the target button
                     targetButton.classList.add('active-tab', 'text-[#801825]');
                     targetButton.classList.remove('text-gray-700', 'bg-transparent');
+                    // Show the target content
                     targetContent.classList.remove('hidden');
 
+                    // Change the bottom image based on the activated tab's data-image
+                    const imageUrl = targetButton.dataset.image;
+                    if (bottomImage && imageUrl) {
+                        bottomImage.src = imageUrl;
+                    }
+
+                    // Scroll behavior for desktop tab navigation
                     if (tabNavSection) {
                         tabNavSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
@@ -433,16 +449,24 @@
                         }
                     }
                 }
+
+                // Update the mobile select dropdown's value to match the active tab
+                if (mobileSelect) {
+                    mobileSelect.value = tabId;
+                }
             }
 
+            // --- Initial Load Logic ---
             const initialHash = window.location.hash.substring(1);
             if (initialHash && initialHash.startsWith('tab-')) {
                 const tabIdFromHash = initialHash.replace('tab-', '');
                 activateTab(tabIdFromHash);
             } else {
+                // Default to 'concert' if no hash or invalid hash
                 activateTab('concert');
             }
 
+            // --- Event Listeners for Desktop Buttons ---
             tabButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     const tabId = this.dataset.tab;
@@ -451,6 +475,16 @@
                 });
             });
 
+            // --- Event Listener for Mobile Select Dropdown ---
+            if (mobileSelect) {
+                mobileSelect.addEventListener('change', function () {
+                    const tabId = this.value; // The value of the selected option is the tabId
+                    activateTab(tabId);
+                    history.pushState(null, '', `#tab-${tabId}`); // Update URL hash on select change
+                });
+            }
+
+            // --- Popstate Event Listener (for browser back/forward) ---
             window.addEventListener('popstate', function () {
                 const currentHash = window.location.hash.substring(1);
                 if (currentHash && currentHash.startsWith('tab-')) {
@@ -460,51 +494,6 @@
                     activateTab('concert');
                 }
             });
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-            const bottomImage = document.getElementById('bottomImage');
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    // Remove active styles from all buttons and hide all content
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('active-tab', 'text-[#801825]');
-                        btn.classList.add('text-gray-700', 'bg-transparent');
-                    });
-                    tabContents.forEach(content => {
-                        content.classList.add('hidden');
-                    });
-
-                    // Add active styles to the clicked button
-                    this.classList.add('active-tab', 'text-[#801825]');
-                    this.classList.remove('text-gray-700', 'bg-transparent');
-
-                    // Show the corresponding tab content
-                    const tabId = this.dataset.tab;
-                    document.getElementById(`tab-${tabId}`).classList.remove('hidden');
-
-                    // Change the bottom image
-                    const imageUrl = this.dataset.image;
-                    if (imageUrl) {
-                        bottomImage.src = imageUrl;
-                    }
-                });
-            });
-
-            // Optional: Trigger a click on the first tab to set initial state
-            const initialTab = document.querySelector('.tab-btn.active-tab');
-            if (initialTab) {
-                initialTab.click();
-            } else {
-                // If no initial active tab, activate the first one and set its image
-                const firstTabButton = document.querySelector('.tab-btn');
-                if (firstTabButton) {
-                    firstTabButton.click();
-                }
-            }
         });
     </script>
 </body>
