@@ -40,19 +40,18 @@
     <header id="main-navbar"
         class="fixed top-0 left-0 w-full z-30 bg-transparent text-white transition-colors duration-300">
         <nav class="max-w-5xl mx-auto flex items-center justify-between py-6 px-4 relative">
-            <a href="index.html" class="flex items-center">
+            <a href="#" class="flex items-center">
                 <img src="src/images/logo-white-name.png" alt="Africa Youth Festival" class="h-10 w-auto" />
             </a>
 
-            <!-- Desktop Menu -->
             <div class="hidden md:flex justify-start items-center">
                 <ul class="flex space-x-10 text-sm font-medium">
-                    <li><a href="index.html" class="hover:border-b-2 hover:border-white pb-1">AYF'25</a></li>
+                    <li><a href="index.html" class="border-b-2 border-white pb-1">AYF'25</a></li>
                     <li><a href="conference.html"
                             class="hover:border-b-2 hover:border-white pb-1 transition">Conference</a>
                     </li>
                     <li class="relative group">
-                        <a href="#programs"
+                        <a href="index.html#programs"
                             class="hover:border-b-2 hover:border-white pb-1 transition flex items-center">Programs <svg
                                 class="w-4 h-4 ml-1 inline-block" fill="none" stroke="currentColor" stroke-width="2"
                                 viewBox="0 0 24 24">
@@ -62,11 +61,11 @@
                             class="absolute left-0 mt-2 w-48 bg-white text-slate-900 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
                             <li><a href="training-programs.html" class="block px-4 py-2 hover:bg-slate-100">Training
                                     Programs</a></li>
-                            <li><a href="social-activities.html" class="block px-4 py-2 hover:bg-slate-100">Social
+                            <li><a href="#" class="block px-4 py-2 hover:bg-slate-100">Social
                                     Activities</a></li>
                         </ul>
                     </li>
-                    <li><a href="#sponsors"
+                    <li><a href="index.html#sponsors"
                             class="hover:border-b-2 hover:border-white pb-1 transition">Sponsors/Partners</a></li>
                 </ul>
                 <a id="navbar-register-link" href="https://register.africayouthfestival.org/register/"
@@ -78,7 +77,6 @@
                 </a>
             </div>
 
-            <!-- Mobile Hamburger Button -->
             <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1 z-50">
                 <span class="w-6 h-0.5 bg-white transition-all duration-300 transform" id="hamburger-line-1"></span>
                 <span class="w-6 h-0.5 bg-white transition-all duration-300 transform" id="hamburger-line-2"></span>
@@ -86,14 +84,11 @@
             </button>
         </nav>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden md:hidden"></div>
 
-        <!-- Mobile Menu Sidebar -->
         <div id="mobile-menu"
-            class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+            class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden z-80">
             <div class="flex flex-col h-full">
-                <!-- Mobile Menu Header -->
                 <div class="flex justify-between items-center p-6 border-b border-gray-200">
                     <img src="src/images/Just-icon.png" alt="Africa Youth Festival" class="h-8 w-auto" />
                     <button id="mobile-menu-close" class="text-gray-500 hover:text-gray-700">
@@ -103,7 +98,6 @@
                     </button>
                 </div>
 
-                <!-- Mobile Menu Items -->
                 <nav class="flex-1 p-6">
                     <ul class="space-y-6">
                         <li><a href="index.html"
@@ -125,18 +119,16 @@
                                 <li><a href="training-programs.html"
                                         class="text-gray-600 hover:text-[#801825] transition block py-2">Training
                                         Programs</a></li>
-                                <li><a href="social-activities.html"
-                                        class="text-gray-600 hover:text-[#801825] transition block py-2">Social
+                                <li><a href="#" class="text-gray-600 hover:text-[#801825] transition block py-2">Social
                                         Activities</a></li>
                             </ul>
                         </li>
-                        <li><a href="#sponsors"
+                        <li><a href="index.html#sponsors"
                                 class="text-gray-900 font-medium text-lg hover:text-[#801825] transition">Sponsors/Partners</a>
                         </li>
                     </ul>
                 </nav>
 
-                <!-- Mobile Register Button -->
                 <div class="p-6 border-t border-gray-200">
                     <a href="https://register.africayouthfestival.org/register/"
                         class="block w-full bg-[#801825] text-white font-bold py-3 px-6 rounded-lg text-center hover:bg-[#6a1420] transition">
@@ -174,145 +166,164 @@
             </div>
         </div>
     </section>
-    <!-- Tabs -->
-    <div class="relative max-w-5xl mx-auto mt-24 px-4">
-        <!-- Scroll Arrows -->
-        <button id="tab-scroll-left"
-            class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 hidden md:block">
-            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M15 19l-7-7 7-7" />
-            </svg>
-        </button>
-        <div id="tab-scroll-container"
-            class="overflow-x-auto whitespace-nowrap scrollbar-hide flex items-center gap-x-4">
-            <button
-                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-[#801825] active-tab inline-block"
-                data-tab="concert">Musical concert</button>
-            <button
-                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
-                data-tab="games">Africa Youth Games</button>
-            <button
-                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
-                data-tab="tour">Tour</button>
-            <button
-                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
-                data-tab="awards">Pan-African awards</button>
-            <button
-                class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block"
-                data-tab="anniversary">10-year anniversary</button>
-        </div>
-        <button id="tab-scroll-right"
-            class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 hidden md:block">
-            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M9 5l7 7-7 7" />
-            </svg>
-        </button>
-    </div>
-    <!-- Overlapping Card Section -->
+
     <section class="relative bg-white pb-0">
-        <!-- Musical concert Tab Content (default visible) -->
-        <div id="tab-concert"
-            class="tab-content relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] border border-gray-200">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Musical concert (Global village/African
-                market)</h2>
-            <p class="text-black opacity-80 mb-2">As part of the Africa Youth Festival experience, the Musical Concert
-                and Cultural Showcase will be an unforgettable celebration of talent, expression, and
-                advocacy.<br><br>The concert will feature electrifying performances by delegates from across the
-                continent, giving young creatives a platform to share their music, dance, poetry, and spoken word — all
-                rooted in African identity and storytelling.<br><br>Adding to the excitement, top African artists will
-                headline the event, using their voices not just to entertain, but also to inspire. Through powerful
-                performances, they will lead a campaign against drug abuse and the negative influence of social media,
-                sparking critical conversations around youth choices, identity, and well-being.<br><br>Alongside the
-                music and performances, the festival grounds will host vibrant exhibitions where youth innovators,
-                entrepreneurs, and artists can showcase their work — from tech projects and fashion to photography and
-                crafts — celebrating the creativity and potential of Africa's youth.</p>
-            <a href="https://register.africayouthfestival.org/register/"
-                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
-                now</a>
+        <div
+            class="flex flex-col md:flex-row gap-8 px-4 relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 px-4 lg:px-8 py-10 z-10 mt-12 mb-[-20rem] border border-gray-200 ">
+            <div class="md:w-1/4 flex-col gap-2 hidden md:flex">
+                <button
+                    class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-[#801825] active-tab inline-block text-left"
+                    data-tab="concert" data-image="src/images/dancing.png">Musical concert</button>
+                <button
+                    class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block text-left"
+                    data-tab="games" data-image="src/images/games.jpg">Africa Youth Games</button>
+                <button
+                    class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block text-left"
+                    data-tab="tour" data-image="src/images/tour.jpg">Tour</button>
+                <button
+                    class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block text-left"
+                    data-tab="awards" data-image="src/images/awards.jpg">Pan-African awards</button>
+                <button
+                    class="tab-btn py-3 px-8 font-medium rounded transition focus:outline-none text-gray-700 bg-transparent inline-block text-left"
+                    data-tab="anniversary" data-image="src/images/anniversary.jpg">10-year anniversary</button>
+            </div>
+
+            <div class="md:hidden w-full px-4 mb-4">
+                <select id="mobile-tab-select"
+                    class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-transparent focus:border-[#a01c2b]">
+                    <option value="concert" data-image="src/images/dancing.png">Musical concert</option>
+                    <option value="games" data-image="src/images/games.jpg">Africa Youth Games</option>
+                    <option value="tour" data-image="src/images/tour.jpg">Tour</option>
+                    <option value="awards" data-image="src/images/awards.jpg">Pan-African awards</option>
+                    <option value="anniversary" data-image="src/images/anniversary.jpg">10-year anniversary</option>
+                </select>
+            </div>
+            <div class="md:w-3/4">
+                <div id="tab-concert" class="tab-content">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Musical concert (Global
+                        village/African
+                        market)</h2>
+                    <p class="text-black opacity-80 mb-2">As part of the Africa Youth Festival experience, the Musical
+                        Concert
+                        and Cultural Showcase will be an unforgettable celebration of talent, expression, and
+                        advocacy.<br><br>The concert will feature electrifying performances by delegates from across the
+                        continent, giving young creatives a platform to share their music, dance, poetry, and spoken
+                        word — all
+                        rooted in African identity and storytelling.<br><br>Adding to the excitement, top African
+                        artists will
+                        headline the event, using their voices not just to entertain, but also to inspire. Through
+                        powerful
+                        performances, they will lead a campaign against drug abuse and the negative influence of social
+                        media,
+                        sparking critical conversations around youth choices, identity, and well-being.<br><br>Alongside
+                        the
+                        music and performances, the festival grounds will host vibrant exhibitions where youth
+                        innovators,
+                        entrepreneurs, and artists can showcase their work — from tech projects and fashion to
+                        photography and
+                        crafts — celebrating the creativity and potential of Africa's youth.</p>
+                    <a href="https://register.africayouthfestival.org/register/"
+                        class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                        now</a>
+                </div>
+                <div id="tab-games" class="tab-content hidden relative ">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Africa Youth Games</h2>
+                    <p class="text-black opacity-80 mb-2">The Africa Youth Games will unite young people across the
+                        continent
+                        through energetic sports competitions, cultural
+                        celebrations, and exhibitions of products. Participants will compete in popular sports like
+                        football,
+                        athletics, and
+                        basketball, demonstrating physical skill, teamwork, and sportsmanship, while indoor games offer
+                        more
+                        relaxed, inclusive
+                        fun. A standout feature is the Afro Jollof battle, a lively culinary contest where delegates
+                        represent
+                        their countries
+                        in a flavourful battle over Jollof rice, blending food, culture, and friendly rivalry.
+                        Additionally,
+                        exhibitions dubbed
+                        African Market will showcase art, innovation, and entrepreneurship, fostering cross-cultural
+                        exchange
+                        and enriching the
+                        overall experience.</p>
+                    <a href="https://register.africayouthfestival.org/register/"
+                        class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                        now</a>
+                </div>
+                <div id="tab-tour" class="tab-content hidden relative">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Tour</h2>
+                    <p class="text-black opacity-80 mb-2">Delegates will have the opportunity to immerse themselves in
+                        Ghana's
+                        rich heritage through guided tours that blend
+                        education, inspiration, and cultural connection. The Accra City Tour highlights iconic landmarks
+                        like
+                        Black Star Square
+                        and the Kwame Nkrumah Mausoleum, alongside vibrant markets and historical neighbourhoods,
+                        showcasing the
+                        city's spirit.
+                        Meanwhile, the Out-of-Accra Tour explores Ghana's diverse landscapes, from coastal forts and
+                        slave trade
+                        sites to
+                        traditional villages, providing deeper insight into the country's historical and cultural
+                        significance.
+                        More than just
+                        sightseeing, these tours foster learning, reflection, and unity, aligning with the festival's
+                        mission of
+                        identity and
+                        growth.</p>
+                    <a href="https://register.africayouthfestival.org/register/"
+                        class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                        now</a>
+                </div>
+                <div id="tab-awards" class="tab-content hidden relative ">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Pan-African awards</h2>
+                    <p class="text-black opacity-80 mb-2">The festival will conclude with Dinner & Awards Night, a grand
+                        celebration honouring outstanding leaders in Africa and
+                        highlighting the collective achievements of youth. This special evening of recognition, glamour
+                        and
+                        reflection will
+                        underscore the festival's commitment to youth empowerment, excellence, and unity, bringing the
+                        Africa
+                        Youth Festival to
+                        a memorable and inspiring close.</p>
+                    <a href="https://register.africayouthfestival.org/register/"
+                        class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                        now</a>
+                </div>
+                <div id="tab-anniversary" class="tab-content hidden relative">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">10-year anniversary</h2>
+                    <p class="text-black opacity-80 mb-2">IFED Global will mark a significant milestone — its 10-Year
+                        Anniversary Celebration — honouring a decade of youth
+                        empowerment, leadership development, and transformative impact across Africa.
+                        <br><br>
+                        A key highlight will be the presentation of the 10-Year Impact Report and Documentary, capturing
+                        the
+                        inspiring journey,
+                        achievements, and stories of lives changed over the past decade. This moment will offer a
+                        powerful
+                        reflection on IFED
+                        Global's vision, partnerships, and the collective efforts that have shaped its legacy.
+                        <br><br>
+                        The celebration will also include tree planting and educational outreach activities, symbolizing
+                        growth,
+                        sustainability,
+                        and the commitment to nurturing future generations. These activities will allow delegates to
+                        give back
+                        to the community
+                        while reinforcing values of environmental responsibility and civic engagement.
+                    </p>
+                    <a href="https://register.africayouthfestival.org/register/"
+                        class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
+                        now</a>
+                </div>
+            </div>
         </div>
-        <!-- Other tab contents (hidden by default, same structure, placeholder text) -->
-        <div id="tab-games"
-            class="tab-content hidden relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] border border-gray-200">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Africa Youth Games</h2>
-            <p class="text-black opacity-80 mb-2">The Africa Youth Games will unite young people across the continent
-                through energetic sports competitions, cultural
-                celebrations, and exhibitions of products. Participants will compete in popular sports like football,
-                athletics, and
-                basketball, demonstrating physical skill, teamwork, and sportsmanship, while indoor games offer more
-                relaxed, inclusive
-                fun. A standout feature is the Afro Jollof battle, a lively culinary contest where delegates represent
-                their countries
-                in a flavourful battle over Jollof rice, blending food, culture, and friendly rivalry. Additionally,
-                exhibitions dubbed
-                African Market will showcase art, innovation, and entrepreneurship, fostering cross-cultural exchange
-                and enriching the
-                overall experience.</p>
-            <a href="https://register.africayouthfestival.org/register/"
-                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
-                now</a>
-        </div>
-        <div id="tab-tour"
-            class="tab-content hidden relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] border border-gray-200">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Tour</h2>
-            <p class="text-black opacity-80 mb-2">Delegates will have the opportunity to immerse themselves in Ghana's
-                rich heritage through guided tours that blend
-                education, inspiration, and cultural connection. The Accra City Tour highlights iconic landmarks like
-                Black Star Square
-                and the Kwame Nkrumah Mausoleum, alongside vibrant markets and historical neighbourhoods, showcasing the
-                city's spirit.
-                Meanwhile, the Out-of-Accra Tour explores Ghana's diverse landscapes, from coastal forts and slave trade
-                sites to
-                traditional villages, providing deeper insight into the country's historical and cultural significance.
-                More than just
-                sightseeing, these tours foster learning, reflection, and unity, aligning with the festival's mission of
-                identity and
-                growth.</p>
-            <a href="https://register.africayouthfestival.org/register/"
-                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
-                now</a>
-        </div>
-        <div id="tab-awards"
-            class="tab-content hidden relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] border border-gray-200">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">Pan-African awards</h2>
-            <p class="text-black opacity-80 mb-2">The festival will conclude with Dinner & Awards Night, a grand
-                celebration honouring outstanding leaders in Africa and
-                highlighting the collective achievements of youth. This special evening of recognition, glamour and
-                reflection will
-                underscore the festival's commitment to youth empowerment, excellence, and unity, bringing the Africa
-                Youth Festival to
-                a memorable and inspiring close.</p>
-            <a href="https://register.africayouthfestival.org/register/"
-                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
-                now</a>
-        </div>
-        <div id="tab-anniversary"
-            class="tab-content hidden relative max-w-4xl mx-auto rounded-3xl shadow-xl bg-white flex flex-col items-start gap-8 p-10 z-10 mt-12 mb-[-20rem] border border-gray-200">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">10-year anniversary</h2>
-            <p class="text-black opacity-80 mb-2">IFED Global will mark a significant milestone — its 10-Year
-                Anniversary Celebration — honouring a decade of youth
-                empowerment, leadership development, and transformative impact across Africa.
-                <br><br>
-                A key highlight will be the presentation of the 10-Year Impact Report and Documentary, capturing the
-                inspiring journey,
-                achievements, and stories of lives changed over the past decade. This moment will offer a powerful
-                reflection on IFED
-                Global's vision, partnerships, and the collective efforts that have shaped its legacy.
-                <br><br>
-                The celebration will also include tree planting and educational outreach activities, symbolizing growth,
-                sustainability,
-                and the commitment to nurturing future generations. These activities will allow delegates to give back
-                to the community
-                while reinforcing values of environmental responsibility and civic engagement.
-            </p>
-            <a href="https://register.africayouthfestival.org/register/"
-                class="bg-[#801825] text-white font-bold px-6 py-2 rounded-lg shadow mb-6 cursor-pointer">Register
-                now</a>
-        </div>
-        <!-- Bottom image for overlap effect -->
         <div class="w-full overflow-hidden" style="height: 600px;">
-            <img src="src/images/dancing.png" class="w-full h-full object-cover" alt="AYF crowd" />
+            <img src="src/images/dancing.png" class="w-full h-full object-cover" alt="AYF crowd" id="bottomImage" />
         </div>
     </section>
+
     <!-- Footer -->
     <footer class="bg-white pt-20">
         <div class="max-w-7xl mx-auto px-4">
@@ -392,12 +403,16 @@
             const tabContents = document.querySelectorAll('.tab-content');
             const tabScrollContainer = document.getElementById('tab-scroll-container');
             const tabNavSection = document.querySelector('.relative.max-w-5xl.mx-auto.mt-24.px-4');
+            const bottomImage = document.getElementById('bottomImage'); // Assuming this is the image to change
+            const mobileSelect = document.getElementById('mobile-tab-select'); // Get the mobile select element
 
             function activateTab(tabId) {
+                // Deactivate all buttons
                 tabButtons.forEach(button => {
                     button.classList.remove('active-tab', 'text-[#801825]');
                     button.classList.add('text-gray-700', 'bg-transparent');
                 });
+                // Hide all content
                 tabContents.forEach(content => {
                     content.classList.add('hidden');
                 });
@@ -406,10 +421,19 @@
                 const targetContent = document.getElementById(`tab-${tabId}`);
 
                 if (targetButton && targetContent) {
+                    // Activate the target button
                     targetButton.classList.add('active-tab', 'text-[#801825]');
                     targetButton.classList.remove('text-gray-700', 'bg-transparent');
+                    // Show the target content
                     targetContent.classList.remove('hidden');
 
+                    // Change the bottom image based on the activated tab's data-image
+                    const imageUrl = targetButton.dataset.image;
+                    if (bottomImage && imageUrl) {
+                        bottomImage.src = imageUrl;
+                    }
+
+                    // Scroll behavior for desktop tab navigation
                     if (tabNavSection) {
                         tabNavSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
@@ -425,16 +449,24 @@
                         }
                     }
                 }
+
+                // Update the mobile select dropdown's value to match the active tab
+                if (mobileSelect) {
+                    mobileSelect.value = tabId;
+                }
             }
 
+            // --- Initial Load Logic ---
             const initialHash = window.location.hash.substring(1);
             if (initialHash && initialHash.startsWith('tab-')) {
                 const tabIdFromHash = initialHash.replace('tab-', '');
                 activateTab(tabIdFromHash);
             } else {
+                // Default to 'concert' if no hash or invalid hash
                 activateTab('concert');
             }
 
+            // --- Event Listeners for Desktop Buttons ---
             tabButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     const tabId = this.dataset.tab;
@@ -443,6 +475,16 @@
                 });
             });
 
+            // --- Event Listener for Mobile Select Dropdown ---
+            if (mobileSelect) {
+                mobileSelect.addEventListener('change', function () {
+                    const tabId = this.value; // The value of the selected option is the tabId
+                    activateTab(tabId);
+                    history.pushState(null, '', `#tab-${tabId}`); // Update URL hash on select change
+                });
+            }
+
+            // --- Popstate Event Listener (for browser back/forward) ---
             window.addEventListener('popstate', function () {
                 const currentHash = window.location.hash.substring(1);
                 if (currentHash && currentHash.startsWith('tab-')) {

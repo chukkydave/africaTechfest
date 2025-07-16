@@ -1,4 +1,3 @@
-// Countdown Timer Functionality
 function updateCountdown() {
     const targetDate = new Date('November 4, 2025 00:00:00').getTime();
     const now = new Date().getTime();
@@ -45,6 +44,7 @@ function initMobileMenu() {
     const hamburgerLine2 = document.getElementById('hamburger-line-2');
     const hamburgerLine3 = document.getElementById('hamburger-line-3');
     const navbar = document.getElementById('main-navbar');
+    const desktopRegisterLink = document.getElementById('navbar-register-link');
 
     if (mobileMenuButton && mobileMenu && mobileMenuOverlay && mobileMenuClose && navbar) {
         let isMenuOpen = false;
@@ -58,14 +58,23 @@ function initMobileMenu() {
             navbar.classList.remove('bg-transparent', 'bg-black', 'bg-opacity-80', 'backdrop-blur-md', 'text-white');
             navbar.classList.add('bg-white', 'text-slate-900');
 
-            const registerLink = document.getElementById('navbar-register-link');
-            if (registerLink) registerLink.classList.add('hidden');
+            // Hide desktop register link when mobile menu is open
+            if (desktopRegisterLink) {
+                desktopRegisterLink.classList.add('hidden');
+            }
 
-
+            // Animate hamburger icon and ensure lines are dark (as navbar is now white)
             if (hamburgerLine1 && hamburgerLine2 && hamburgerLine3) {
                 hamburgerLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
                 hamburgerLine2.style.opacity = '0';
                 hamburgerLine3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                // Change hamburger lines to a dark color to be visible on white navbar
+                hamburgerLine1.classList.remove('bg-white');
+                hamburgerLine2.classList.remove('bg-white');
+                hamburgerLine3.classList.remove('bg-white');
+                hamburgerLine1.classList.add('bg-gray-800');
+                hamburgerLine2.classList.add('bg-gray-800');
+                hamburgerLine3.classList.add('bg-gray-800');
             }
         }
 
@@ -75,14 +84,23 @@ function initMobileMenu() {
             mobileMenuOverlay.classList.add('hidden');
             document.body.style.overflow = '';
 
+
             if (typeof handleNavbarScroll === 'function') {
                 handleNavbarScroll();
             }
 
+            // Restore hamburger icon
             if (hamburgerLine1 && hamburgerLine2 && hamburgerLine3) {
                 hamburgerLine1.style.transform = 'rotate(0) translate(0, 0)';
                 hamburgerLine2.style.opacity = '1';
                 hamburgerLine3.style.transform = 'rotate(0) translate(0, 0)';
+                // Revert hamburger lines to white (default for transparent/dark navbar)
+                hamburgerLine1.classList.remove('bg-gray-800');
+                hamburgerLine2.classList.remove('bg-gray-800');
+                hamburgerLine3.classList.remove('bg-gray-800');
+                hamburgerLine1.classList.add('bg-white');
+                hamburgerLine2.classList.add('bg-white');
+                hamburgerLine3.classList.add('bg-white');
             }
         }
 
@@ -110,9 +128,13 @@ function initMobileMenu() {
         }
 
         // Close menu when clicking on a link (except dropdown toggle)
-        const mobileLinks = mobileMenu.querySelectorAll('a:not([href="#"])');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
+            link.addEventListener('click', (e) => {
+                if (!link.closest('#mobile-programs-toggle') && !link.closest('#mobile-programs-dropdown')) {
+                    closeMenu();
+                }
+            });
         });
 
         // Close menu on escape key
@@ -124,7 +146,7 @@ function initMobileMenu() {
     }
 }
 
-// Smooth Scrolling for Anchor Links
+// Smooth Scrolling for Anchor Links (No changes needed)
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
 
@@ -137,12 +159,17 @@ function initSmoothScrolling() {
                     top: 0,
                     behavior: 'smooth'
                 });
-            } else { 
+            } else {
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    // Adjust scroll position to account for fixed header
+                    const headerOffset = 80; // Approximate height of your fixed header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
                 }
             }
@@ -150,14 +177,13 @@ function initSmoothScrolling() {
     });
 }
 
-// Button Click Handlers
+// Button Click Handlers (No changes needed)
 function initButtonHandlers() {
     const registerButtons = document.querySelectorAll('button');
 
     registerButtons.forEach(button => {
         if (button.textContent?.includes('Register now')) {
             button.addEventListener('click', () => {
-                alert('Registration page would open here!');
             });
         }
     });
@@ -174,30 +200,35 @@ function initNavbarScrollEffect() {
     }
 
     handleNavbarScroll = function () {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
         const mobileMenu = document.getElementById('mobile-menu');
         const isMobileMenuOpen = mobileMenu && !mobileMenu.classList.contains('translate-x-full');
 
-        if (isMobileMenuOpen) {
-            return;
-        }
+        if (!isMobileMenuOpen) {
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            const scrollPosition = window.scrollY || window.pageYOffset;
 
-        if (heroBottom <= 80) {
-            navbar.classList.remove('bg-transparent', 'text-white');
-            navbar.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-md', 'text-white');
-            if (registerLink) registerLink.classList.remove('hidden');
-        } else { // At top/hero
-            navbar.classList.add('bg-transparent', 'text-white');
-            navbar.classList.remove('bg-black', 'bg-opacity-80', 'backdrop-blur-md');
-            if (registerLink) registerLink.classList.add('hidden');
+            const scrolledPastHero = scrollPosition > (heroSection.offsetHeight - navbar.offsetHeight);
+
+            if (scrolledPastHero) {
+                // Scrolled down: Apply solid background
+                navbar.classList.remove('bg-transparent');
+                navbar.classList.add('bg-black', 'bg-opacity-80', 'backdrop-blur-md', 'text-white');
+                if (registerLink) registerLink.classList.remove('hidden');
+            } else {
+                // At top (in hero section): Transparent background
+                navbar.classList.add('bg-transparent');
+                navbar.classList.remove('bg-black', 'bg-opacity-80', 'backdrop-blur-md');
+                if (registerLink) registerLink.classList.add('hidden');
+            }
         }
     };
 
     window.addEventListener('scroll', handleNavbarScroll);
+    // Call it once on load to set initial state
     handleNavbarScroll();
 }
 
-// Social Activities/Training Programs Tabs Logic (Keep as is)
+// Social Activities/Training Programs Tabs Logic (No changes needed)
 function initTabBar() {
     const tabContainer = document.getElementById('tab-scroll-container');
     const leftBtn = document.getElementById('tab-scroll-left');
@@ -250,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabBar();
 });
 
-// Add some animations on scroll
+// Add some animations on scroll (No changes needed)
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
